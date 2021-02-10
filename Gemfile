@@ -24,6 +24,10 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'haml'
+gem "haml-rails", "~> 2.0" #generate haml 
+gem "chartkick"
+gem 'groupdate' #to use group_by_date method with chartkick
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

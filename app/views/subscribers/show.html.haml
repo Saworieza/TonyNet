@@ -1,0 +1,40 @@
+%p#notice= notice
+%p
+  %strong Name:
+  = @subscriber.name
+%p
+  %strong Phone:
+  = @subscriber.phone
+%p
+  %strong Apartment:
+  = @subscriber.apartment.name
+%p
+  %strong House Number:
+  = @subscriber.house.number
+= link_to 'Edit', edit_subscriber_path(@subscriber)
+|
+= link_to 'Back', subscribers_path
+%h3 Payments
+%hr/
+%table
+  %thead
+    %tr
+      / <th>Subscriber</th>
+      %th Date
+      %th Payment type
+      %th Transaction code
+      %th Invoice no
+      %th Amount
+      %th{:colspan => "3"}
+  %tbody
+    - @subscriber.payments.each do |payment|
+      %tr
+        / <td><haml_silent></haml_silent></td>
+        %td= payment.date
+        %td= payment.payment_type
+        %td= payment.transaction_code
+        %td= payment.invoice_no
+        %td= payment.amount
+        %td= link_to 'Show', payment
+        %td= link_to 'Edit', edit_payment_path(payment)
+        %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
