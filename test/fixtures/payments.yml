@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2021-01-26
+  payment_type: MyString
+  transaction_code: MyString
+  invoice_no: MyString
+  amount: 1
+  subscriber: one
+
+two:
+  date: 2021-01-26
+  payment_type: MyString
+  transaction_code: MyString
+  invoice_no: MyString
+  amount: 1
+  subscriber: two

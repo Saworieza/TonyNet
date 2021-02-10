@@ -1,0 +1,39 @@
+<%= form_with(model: subscriber, local: true) do |form| %>
+  <% if subscriber.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(subscriber.errors.count, "error") %> prohibited this subscriber from being saved:</h2>
+
+      <ul>
+      <% subscriber.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.number_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :apartment_id %>
+    <%= form.collection_select :apartment_id, Apartment.all, :id, :name, include_blank: true %>
+    <%#= form.text_field :apartment_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :house_id %>
+    <%= form.grouped_collection_select :house_id, Apartment.order(:name), :houses, :name, :id, :number, include_blank: true %>
+    <%#= form.text_field :house_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
