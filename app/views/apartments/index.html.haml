@@ -4,11 +4,15 @@
   %thead
     %tr
       %th Name
+      %th Latitude
+      %th Longitude
       %th{:colspan => "3"}
   %tbody
     - @apartments.each do |apartment|
       %tr
         %td= apartment.name
+        %td= apartment.latitude
+        %td= apartment.longitude
         %td= link_to 'Show', apartment
         %td= link_to 'Edit', edit_apartment_path(apartment)
         %td= link_to 'Destroy', apartment, method: :delete, data: { confirm: 'Are you sure?' }

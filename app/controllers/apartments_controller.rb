@@ -69,6 +69,6 @@ class ApartmentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def apartment_params
-      params.require(:apartment).permit(:name)
+      params.require(:apartment).permit(:name, :latitude, :longitude)
     end
 end
