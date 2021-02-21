@@ -30,6 +30,7 @@ gem "chartkick"
 gem 'groupdate' #to use group_by_date method with chartkick
 
 gem 'geocoder'
+gem 'invoicing'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'

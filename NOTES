@@ -1,0 +1,22 @@
+DEVELOPMENT NOTES
+1.Coordinates of the place.
+2.House Number.
+3.Speeds paying For.
+	Plans
+4.Active or Inactive.
+5.Paid or not paid
+6.Full Names so that we can be able to tally with mpesa.
+
+Expectations 
+1.For paid the map to change to green
+2.Not paid map remains red
+
+DB Design
+
+Apartment has many houses
+A house has many subscribers (because the current guy might move but the next guy takes the subscription)
+A subscriber has many packages
+A user hs many invoices which takes its prices from
+
+Work Flow
+A subscriber has a package 
