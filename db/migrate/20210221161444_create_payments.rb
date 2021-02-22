@@ -4,9 +4,8 @@ class CreatePayments < ActiveRecord::Migration[5.2]
       t.date :date
       t.string :payment_type
       t.string :transaction_code
-      t.string :invoice_no
-      t.integer :amount
-      t.references :subscriber, foreign_key: true
+      t.decimal :amount
+      t.references :invoice, foreign_key: true
 
       t.timestamps
     end

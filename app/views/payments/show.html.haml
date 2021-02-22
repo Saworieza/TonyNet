@@ -1,22 +1,39 @@
 %p#notice= notice
+
 %p
-  %strong Subscriber:
-  = @payment.subscriber.name
+  %b Subscriber Data
+  %br
+  = @payment.invoice.subscriber.name
+  %br
+  = @payment.invoice.subscriber.apartment.name
+  %br
+  = @payment.invoice.subscriber.house.number
+
 %p
-  %strong Date:
+  %b Invoice Number:
+  = @payment.invoice.number
+%p
+  %b Invoice Cost
+  = @payment.invoice.package.cost
+%p
+  %b Invoice Due:
+  = @payment.invoice.due_date
+
+%h3 Payment Details
+%hr
+%p
+  %b Date:
   = @payment.date
 %p
-  %strong Payment type:
+  %b Payment type:
   = @payment.payment_type
 %p
-  %strong Transaction code:
+  %b Transaction code:
   = @payment.transaction_code
 %p
-  %strong Invoice no:
-  = @payment.invoice_no
-%p
-  %strong Amount:
+  %b Amount:
   = @payment.amount
+
 = link_to 'Edit', edit_payment_path(@payment)
-|
+\|
 = link_to 'Back', payments_path

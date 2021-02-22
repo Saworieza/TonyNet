@@ -1,0 +1,57 @@
+%p#notice= notice
+
+%p
+  %b Bill To:
+  = @invoice.subscriber.name 
+  = @invoice.subscriber.phone
+  = @invoice.subscriber.house.number
+  = @invoice.subscriber.apartment.name
+%p
+  %b Invoice No:
+  = @invoice.number
+%p
+  %b Date:
+  = @invoice.date
+%p
+  %b Due Date:
+  = @invoice.due_date
+
+%b Package:
+%table
+  %thead
+    %tr
+      %td Description
+      %td Speeds
+      %td Unit Price
+      %td Amount
+  %tbody
+    %tr
+      %td= @invoice.package.name
+      %td= @invoice.package.speed
+      %td= @invoice.package.cost
+      %td= @invoice.package.cost
+
+= link_to 'Edit', edit_invoice_path(@invoice)
+\|
+= link_to 'Back', invoices_path
+\|
+= link_to 'Delete', @invoice, method: :delete, data: { confirm: 'Are you sure?' }
+%h4 Payments
+%hr
+%table
+  %thead
+    %tr
+      %th Date
+      %th Payment type
+      %th Transaction code
+      %th Amount
+      %th
+
+  %tbody
+    - @invoice.payments.each do |payment|
+      %tr
+        %td= payment.date
+        %td= payment.payment_type
+        %td= payment.transaction_code
+        %td= payment.amount
+        %td= link_to 'Show', payment

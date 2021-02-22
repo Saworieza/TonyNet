@@ -1,3 +1,3 @@
 class Payment < ApplicationRecord
-  belongs_to :subscriber
+  belongs_to :invoice
 end

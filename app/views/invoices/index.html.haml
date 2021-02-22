@@ -1,0 +1,26 @@
+%h1 Listing invoices
+
+%table
+  %thead
+    %tr
+      %th Invoice No
+      %th Subscriber
+      %th Date
+      %th Due date
+      %th Package
+      %th
+
+  %tbody
+    - @invoices.each do |invoice|
+      %tr
+        %td= invoice.number
+        %td= invoice.subscriber.name
+        %td= invoice.date
+        %td= invoice.due_date
+        %td= invoice.package.name
+        %td= link_to 'Show', invoice
+        
+
+%br
+
+= link_to 'New Invoice', new_invoice_path

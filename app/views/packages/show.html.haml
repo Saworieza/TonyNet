@@ -13,3 +13,17 @@
 = link_to 'Edit', edit_package_path(@package)
 \|
 = link_to 'Back', packages_path
+%h3 Subscribers
+%table
+  %thead
+    %tr
+      %th Subscriber
+      %th Date
+      %th
+
+  %tbody
+    - @package.invoices.each do |invoice|
+      %tr
+        %td= invoice.subscriber.name
+        %td= invoice.date
+        %td= link_to 'Show', invoice

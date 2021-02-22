@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :packages
   resources :payments
+  resources :invoices
+  resources :packages
   resources :subscribers
   resources :houses
   resources :apartments

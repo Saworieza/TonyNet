@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 1
+  date: 2021-02-21
+  due_date: 2021-02-21
+  package: one
+  subscriber: one
+
+two:
+  number: 1
+  date: 2021-02-21
+  due_date: 2021-02-21
+  package: two
+  subscriber: two

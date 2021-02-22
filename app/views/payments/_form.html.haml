@@ -1,29 +1,26 @@
-= form_with(model: payment, local: true) do |form|
-  - if payment.errors.any?
+= form_for @payment do |f|
+  - if @payment.errors.any?
     #error_explanation
-      %h2
-        = pluralize(payment.errors.count, "error")
-        prohibited this payment from being saved:
+      %h2= "#{pluralize(@payment.errors.count, "error")} prohibited this payment from being saved:"
       %ul
-        - payment.errors.full_messages.each do |message|
+        - @payment.errors.full_messages.each do |message|
           %li= message
+
   .field
-    = form.label :subscriber_id
-    = form.collection_select :subscriber_id, Subscriber.all, :id, :name, include_blank: true
+    = f.label :invoice
+    = f.collection_select :invoice_id, Invoice.all, :id, :number, include_blank: true
+    / = f.text_field :invoice
   .field
-    = form.label :date
-    = form.date_select :date
+    = f.label :date
+    = f.date_select :date
   .field
-    = form.label :payment_type
-    = form.text_field :payment_type
+    = f.label :payment_type
+    = f.text_field :payment_type
   .field
-    = form.label :transaction_code
-    = form.text_field :transaction_code
+    = f.label :transaction_code
+    = f.text_field :transaction_code
   .field
-    = form.label :invoice_no
-    = form.text_field :invoice_no
-  .field
-    = form.label :amount
-    = form.number_field :amount
+    = f.label :amount
+    = f.text_field :amount
   .actions
-    = form.submit
+    = f.submit 'Save'

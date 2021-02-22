@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_10_145701) do
+ActiveRecord::Schema.define(version: 2021_02_21_161444) do
 
   create_table "apartments", force: :cascade do |t|
     t.string "name"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 2021_02_10_145701) do
     t.index ["apartment_id"], name: "index_houses_on_apartment_id"
   end
 
+  create_table "invoices", force: :cascade do |t|
+    t.integer "number"
+    t.date "date"
+    t.date "due_date"
+    t.integer "package_id"
+    t.integer "subscriber_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["package_id"], name: "index_invoices_on_package_id"
+    t.index ["subscriber_id"], name: "index_invoices_on_subscriber_id"
+  end
+
   create_table "packages", force: :cascade do |t|
     t.string "name"
     t.integer "speed"
@@ -40,12 +52,11 @@ ActiveRecord::Schema.define(version: 2021_02_10_145701) do
     t.date "date"
     t.string "payment_type"
     t.string "transaction_code"
-    t.string "invoice_no"
-    t.integer "amount"
-    t.integer "subscriber_id"
+    t.decimal "amount"
+    t.integer "invoice_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["subscriber_id"], name: "index_payments_on_subscriber_id"
+    t.index ["invoice_id"], name: "index_payments_on_invoice_id"
   end
 
   create_table "subscribers", force: :cascade do |t|

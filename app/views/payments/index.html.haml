@@ -1,32 +1,29 @@
-%p#notice= notice
-= link_to 'New Payment', new_payment_path
-%h1 Payments
+%h1 Listing payments
+
 %table
   %thead
     %tr
-      %th Subscriber
       %th Date
       %th Payment type
       %th Transaction code
-      %th Invoice no
       %th Amount
-      %th{:colspan => "3"}
+      %th Invoice
+      %th
+      %th
+      %th
+
   %tbody
     - @payments.each do |payment|
       %tr
-        %td= link_to payment.subscriber.name, @subscriber
         %td= payment.date
         %td= payment.payment_type
         %td= payment.transaction_code
-        %td= payment.invoice_no
         %td= payment.amount
+        %td= payment.invoice.number
         %td= link_to 'Show', payment
         %td= link_to 'Edit', edit_payment_path(payment)
         %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
-%br/
 
-%p
-  an experiment on charts. dont mind it
+%br
 
-%hr
-  = line_chart Payment.group_by_minute(:created_at).count
+= link_to 'New Payment', new_payment_path

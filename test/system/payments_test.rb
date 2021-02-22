@@ -16,9 +16,8 @@ class PaymentsTest < ApplicationSystemTestCase
 
     fill_in "Amount", with: @payment.amount
     fill_in "Date", with: @payment.date
-    fill_in "Invoice no", with: @payment.invoice_no
+    fill_in "Invoice", with: @payment.invoice_id
     fill_in "Payment type", with: @payment.payment_type
-    fill_in "Subscriber", with: @payment.subscriber_id
     fill_in "Transaction code", with: @payment.transaction_code
     click_on "Create Payment"
 
@@ -32,9 +31,8 @@ class PaymentsTest < ApplicationSystemTestCase
 
     fill_in "Amount", with: @payment.amount
     fill_in "Date", with: @payment.date
-    fill_in "Invoice no", with: @payment.invoice_no
+    fill_in "Invoice", with: @payment.invoice_id
     fill_in "Payment type", with: @payment.payment_type
-    fill_in "Subscriber", with: @payment.subscriber_id
     fill_in "Transaction code", with: @payment.transaction_code
     click_on "Update Payment"
 

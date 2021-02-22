@@ -14,27 +14,48 @@
 = link_to 'Edit', edit_subscriber_path(@subscriber)
 |
 = link_to 'Back', subscribers_path
-%h3 Payments
+%h3 Invoices
 %hr/
 %table
   %thead
     %tr
-      / <th>Subscriber</th>
+      %th Invoice No
       %th Date
-      %th Payment type
-      %th Transaction code
-      %th Invoice no
+      %th Due date
+      %th Package
       %th Amount
-      %th{:colspan => "3"}
+      %th
+
   %tbody
-    - @subscriber.payments.each do |payment|
+    - @subscriber.invoices.each do |invoice|
       %tr
-        / <td><haml_silent></haml_silent></td>
-        %td= payment.date
-        %td= payment.payment_type
-        %td= payment.transaction_code
-        %td= payment.invoice_no
-        %td= payment.amount
-        %td= link_to 'Show', payment
-        %td= link_to 'Edit', edit_payment_path(payment)
-        %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= invoice.number
+        %td= invoice.date
+        %td= invoice.due_date
+        %td= invoice.package.name
+        %td= invoice.package.cost
+        %td= link_to 'Show', invoice
+%h3 Payments
+%hr/
+/ %table
+/   %thead
+/     %tr
+/       / <th>Subscriber</th>
+/       %th Date
+/       %th Payment type
+/       %th Transaction code
+/       %th Invoice no
+/       %th Amount
+/       %th{:colspan => "3"}
+/   %tbody
+/     - @subscriber.payments.each do |payment|
+/       %tr
+/         / <td><haml_silent></haml_silent></td>
+/         %td= payment.date
+/         %td= payment.payment_type
+/         %td= payment.transaction_code
+/         %td= payment.invoice_no
+/         %td= payment.amount
+/         %td= link_to 'Show', payment
+/         %td= link_to 'Edit', edit_payment_path(payment)
+/         %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
