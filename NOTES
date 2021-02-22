@@ -11,12 +11,6 @@ Expectations
 1.For paid the map to change to green
 2.Not paid map remains red
 
-DB Design
-
-Apartment has many houses
-A house has many subscribers (because the current guy might move but the next guy takes the subscription)
-A subscriber has many packages
-A user hs many invoices which takes its prices from
-
-Work Flow
-A subscriber has a package 
+Subsciption acount track on monthly basis
+packages have a subscription status button
+Do the math for pending bills and include it in both the payment show and whether its over paid etc
